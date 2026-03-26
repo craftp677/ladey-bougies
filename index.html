@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Atelier des Bougies | Boutique Artisanale</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: grid; }
+        .tab-button.active { border-bottom: 2px solid #b38b6d; color: #b38b6d; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-serif font-bold text-stone-700 tracking-wider">L'ATELIER DES BOUGIES</h1>
+            <a href="https://www.facebook.com/marketplace" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full flex items-center transition shadow-lg">
+                <i class="fab fa-facebook-f mr-2"></i> Boutique Marketplace
+            </a>
+        </nav>
+    </header>
+
+    <!-- Section Carrousel (Visuel) -->
+    <section class="relative h-[500px] overflow-hidden bg-stone-200">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <img src="https://images.unsplash.com" alt="Bougies Artisanales" class="w-full h-full object-cover opacity-90">
+            <div class="absolute text-center text-white drop-shadow-2xl">
+                <h2 class="text-5xl font-serif mb-4">Illuminez votre intérieur</h2>
+                <p class="text-xl italic">Cires naturelles et parfums d'exception</p>
+            </div>
+        </div>
+        <!-- Contrôles carrousel (esthétique) -->
+        <button class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 p-3 rounded-full hover:bg-white/50 transition text-white text-2xl">❮</button>
+        <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 p-3 rounded-full hover:bg-white/50 transition text-white text-2xl">❯</button>
+    </section>
+
+    <!-- Section Catégories à Onglets -->
+    <section class="container mx-auto px-6 py-16">
+        <h3 class="text-3xl font-serif text-center mb-10">Nos Collections</h3>
+        
+        <div class="flex justify-center space-x-8 mb-12 border-b border-stone-200">
+            <button onclick="openTab(event, 'floral')" class="tab-button active pb-4 font-medium uppercase tracking-widest text-sm transition-all duration-300">Florales</button>
+            <button onclick="openTab(event, 'boise')" class="tab-button pb-4 font-medium uppercase tracking-widest text-sm transition-all duration-300">Boisées</button>
+            <button onclick="openTab(event, 'gourmand')" class="tab-button pb-4 font-medium uppercase tracking-widest text-sm transition-all duration-300">Gourmandes</button>
+        </div>
+
+        <!-- Contenu des onglets -->
+        <!-- Catégorie Florale -->
+        <div id="floral" class="tab-content active grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
+                <div class="h-64 bg-stone-100 mb-4 rounded overflow-hidden">
+                    <img src="https://images.unsplash.com" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-lg">Lavande de Provence</h4>
+                <p class="text-stone-500 text-sm italic">Apaisante et délicate</p>
+                <button class="mt-4 text-sm font-semibold text-stone-700 border-b border-stone-400">Voir sur Marketplace</button>
+            </div>
+             <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
+                <div class="h-64 bg-stone-100 mb-4 rounded overflow-hidden">
+                    <img src="https://images.unsplash.com" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-lg">Rose & Pivoine</h4>
+                <p class="text-stone-500 text-sm italic">Un bouquet printanier</p>
+                <button class="mt-4 text-sm font-semibold text-stone-700 border-b border-stone-400">Voir sur Marketplace</button>
+            </div>
+        </div>
+
+        <!-- Catégorie Boisée -->
+        <div id="boise" class="tab-content grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+                <div class="h-64 bg-stone-100 mb-4 rounded overflow-hidden">
+                    <img src="https://images.unsplash.com" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-lg">Cèdre Argenté</h4>
+                <p class="text-stone-500 text-sm italic">Notes profondes et fumées</p>
+            </div>
+        </div>
+
+        <!-- Catégorie Gourmande -->
+        <div id="gourmand" class="tab-content grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+                <div class="h-64 bg-stone-100 mb-4 rounded overflow-hidden">
+                    <img src="https://images.unsplash.com" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-lg">Vanille Bourbon</h4>
+                <p class="text-stone-500 text-sm italic">Douce et réconfortante</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-800 text-stone-300 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-4 text-lg">Retrouvez toutes nos créations sur Facebook Marketplace</p>
+            <a href="https://www.facebook.com/marketplace" class="inline-block border border-stone-500 px-8 py-3 rounded-full hover:bg-stone-700 hover:text-white transition duration-300">
+                Visiter la boutique officielle
+            </a>
+            <div class="mt-12 text-xs text-stone-500 uppercase tracking-widest">
+                &copy; 2024 L'Atelier des Bougies • Artisan Cirier
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script pour les onglets -->
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
