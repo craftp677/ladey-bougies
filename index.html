@@ -3,52 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L'Atelier des Bougies | Boutique Artisanale</title>
-	
-	<!-- SEO Classique -->
-    <title>L'Atelier des Bougies | Bougies Artisanales Naturelles</title>
-    <meta name="description" content="Découvrez nos bougies artisanales coulées à la main en France. Cire de soja 100% naturelle et parfums de Grasse.">
-    <meta name="keywords" content="bougies, artisanat, cire de soja, décoration, bien-être">
+    <title>Ladey Bougies | Bougies Artisanales & Naturelles</title>
+    <meta name="description" content="Découvrez nos bougies artisanales coulées à la main au Québec. Cire 100% naturelle.">
+    <meta name="keywords" content="bougies, artisanat, cire naturelle, décoration, bien-être">
 
     <!-- Open Graph (Pour Facebook & Instagram) -->
-    <meta property="og:title" content="L'Atelier des Bougies | Artisan Cirier">
+    <meta property="og:title" content="Ladey Bougies, Bougies Artisanales et Naturelles">
     <meta property="og:description" content="Des bougies saines et parfumées pour votre intérieur.">
-    <meta property="og:image" content="https://www.votre-domaine.fr">
-    <meta property="og:url" content="https://www.votre-domaine.fr">
+    <meta property="og:image" content="https://ladeybougies.ca">
+    <meta property="og:url" content="https://ladeybougies.ca">
     <meta property="og:type" content="website">
 	
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans">
     <style>
         .tab-content { display: none; }
         .tab-content.active { display: grid; }
         .tab-button.active { border-bottom: 2px solid #b38b6d; color: #b38b6d; }
     </style>
-</head>
-<body class="bg-stone-50 text-stone-800 font-sans">
 
     <!-- Header -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-serif font-bold text-stone-700 tracking-wider">L'ATELIER DES BOUGIES</h1>
+            <h1 class="text-2xl font-serif font-bold text-stone-700 tracking-wider">Ladey Bougies | Bougies Artisanales et Naturelles</h1>
             <a href="https://www.facebook.com/marketplace" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full flex items-center transition shadow-lg">
-                <i class="fab fa-facebook-f mr-2"></i> Boutique Marketplace
+                <i class="fa fa-store mr-2"></i> Boutique Marketplace
             </a>
         </nav>
     </header>
 
     <!-- Section Carrousel (Visuel) -->
+    <script>
+        const slides = [
+            {
+                url: "https://images.unsplash.com/photo-1724570568441-9755d8e8b6e2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                title: "Illuminez votre intérieur",
+                desc: "Cires naturelles et parfums d'exception"
+            },
+            {
+                url: "https://plus.unsplash.com/premium_photo-1668885672113-236ccae77465?q=80&w=1278&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                title: "Ambiance Cocooning",
+                desc: "Des créations faites main avec amour"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1604249180474-3ebaf8747373?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                title: "Évasion Sensorielle",
+                desc: "Notes boisées et florales pour votre maison"
+            }
+        ];
+    </script>
     <section class="relative h-[500px] overflow-hidden bg-stone-200">
         <div class="absolute inset-0 flex items-center justify-center">
-            <img src="https://images.unsplash.com" alt="Bougies Artisanales" class="w-full h-full object-cover opacity-90">
+            <!-- ID ajoutés pour le JS -->
+            <img id="carousel-img" src="https://images.unsplash.com/photo-1724570568441-9755d8e8b6e2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bougies" class="w-full h-full object-cover transition-all duration-1000 ease-in-out scale-100">
+            
             <div class="absolute text-center text-white drop-shadow-2xl">
-                <h2 class="text-5xl font-serif mb-4">Illuminez votre intérieur</h2>
-                <p class="text-xl italic">Cires naturelles et parfums d'exception</p>
+                <h2 id="carousel-title" class="text-5xl font-serif mb-4">Illuminez votre intérieur</h2>
+                <p id="carousel-desc" class="text-xl italic">Cires naturelles et parfums d'exception</p>
             </div>
         </div>
-        <!-- Contrôles carrousel (esthétique) -->
-        <button class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 p-3 rounded-full hover:bg-white/50 transition text-white text-2xl">❮</button>
-        <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 p-3 rounded-full hover:bg-white/50 transition text-white text-2xl">❯</button>
+
+        <!-- Boutons avec événements clic -->
+        <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 p-3 rounded-full hover:bg-white/50 transition text-white text-2xl z-10">❮</button>
+        <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 p-3 rounded-full hover:bg-white/50 transition text-white text-2xl z-10">❯</button>
     </section>
 
     <!-- Section Catégories à Onglets -->
@@ -70,7 +89,7 @@
                 </div>
                 <h4 class="font-bold text-lg">Lavande de Provence</h4>
                 <p class="text-stone-500 text-sm italic">Apaisante et délicate</p>
-                <button class="mt-4 text-sm font-semibold text-stone-700 border-b border-stone-400">Voir sur Marketplace</button>
+                <a href="" class="mt-4 text-sm font-semibold text-stone-700 border-b border-stone-400">Voir sur Marketplace</a>
             </div>
              <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
                 <div class="h-64 bg-stone-100 mb-4 rounded overflow-hidden">
@@ -78,7 +97,7 @@
                 </div>
                 <h4 class="font-bold text-lg">Rose & Pivoine</h4>
                 <p class="text-stone-500 text-sm italic">Un bouquet printanier</p>
-                <button class="mt-4 text-sm font-semibold text-stone-700 border-b border-stone-400">Voir sur Marketplace</button>
+                <a href="" class="mt-4 text-sm font-semibold text-stone-700 border-b border-stone-400">Voir sur Marketplace</a>
             </div>
         </div>
 
@@ -90,6 +109,7 @@
                 </div>
                 <h4 class="font-bold text-lg">Cèdre Argenté</h4>
                 <p class="text-stone-500 text-sm italic">Notes profondes et fumées</p>
+                <a href="" class="mt-4 text-sm font-semibold text-stone-700 border-b border-stone-400">Voir sur Marketplace</a>
             </div>
         </div>
 
@@ -101,6 +121,7 @@
                 </div>
                 <h4 class="font-bold text-lg">Vanille Bourbon</h4>
                 <p class="text-stone-500 text-sm italic">Douce et réconfortante</p>
+                <a href="" class="mt-4 text-sm font-semibold text-stone-700 border-b border-stone-400">Voir sur Marketplace</a>
             </div>
         </div>
     </section>
@@ -113,12 +134,11 @@
                 Visiter la boutique officielle
             </a>
             <div class="mt-12 text-xs text-stone-500 uppercase tracking-widest">
-                &copy; 2024 L'Atelier des Bougies • Artisan Cirier
+                &copy; 2026 Ladey Bougies
             </div>
         </div>
     </footer>
 
-    <!-- Script pour les onglets -->
     <script>
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
@@ -133,6 +153,49 @@
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
+
+        let currentIndex = 0;
+        let autoSlideInterval; // Variable pour stocker l'intervalle
+
+        // 1. Fonction pour démarrer/reset le timer
+        function startAutoSlide() {
+            // On efface le timer précédent s'il existe
+            if (autoSlideInterval) clearInterval(autoSlideInterval);
+            
+            // On en crée un nouveau de 5000ms
+            autoSlideInterval = setInterval(() => {
+                changeSlide(1);
+            }, 5000);
+        }
+
+        function changeSlide(direction) {
+            const img = document.getElementById('carousel-img');
+            const title = document.getElementById('carousel-title');
+            
+            // 1. Début de la transition : on réduit l'opacité et on zoome légèrement
+            img.style.opacity = "0.6";
+            img.style.transform = "scale(1.05)";
+            title.style.opacity = "0.6";
+            //title.style.transform = "translateY(10px)";
+
+            setTimeout(() => {
+                // 2. Changement des données
+                currentIndex = (currentIndex + direction + slides.length) % slides.length;
+                
+                img.src = slides[currentIndex].url;
+                title.textContent = slides[currentIndex].title;
+                document.getElementById('carousel-desc').textContent = slides[currentIndex].desc;
+
+                // 3. Fin de la transition : on réaffiche avec l'effet inverse
+                img.style.opacity = "0.9";
+                img.style.transform = "scale(1)";
+                title.style.opacity = "1";
+                title.style.transform = "translateY(0)";
+
+                startAutoSlide();
+            }, 600);
+        }
+        startAutoSlide();
     </script>
 </body>
 </html>
