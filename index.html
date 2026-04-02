@@ -31,14 +31,21 @@
         .tab-content { display: none; }
         .tab-content.active { display: grid; }
         .tab-button.active { border-bottom: 2px solid #b38b6d; color: #b38b6d; }
+		
+		@media(min-resolution: 2dppx) {
+		  .sticky{
+			position: relative;
+		  }
+		}
     </style>
 
     <!-- Header -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-serif font-bold text-stone-700 tracking-wider">Ladey Bougies | Bougies Artisanales et Naturelles</h1>
-            <a href="https://www.facebook.com/profile.php?id=61577433298265" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full flex items-center transition shadow-lg">
-                <i class="fa fa-store mr-2"></i> Boutique Marketplace
+            <a href="https://www.facebook.com/profile.php?id=61577433298265" target="_blank"
+			   class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 rounded-full flex items-center transition shadow-lg">
+                <i class="fa-brands fa-facebook mr-2 text-2xl" aria-hidden="true"></i> Page Facebook
             </a>
         </nav>
     </header>
@@ -47,30 +54,29 @@
     <script>
         const slides = [
             {
-                url: "https://images.unsplash.com/photo-1724570568441-9755d8e8b6e2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                title: "Illuminez votre intérieur",
-                desc: "Cires naturelles et parfums d'exception"
+                url: "images/carrousel/ladey-bougies_cire_naturelle.webp",
+                title: "Le fait main, c'est un morceau d'âme que l'on offre dans chaque création",
+                desc: ""
             },
             {
-                url: "https://plus.unsplash.com/premium_photo-1668885672113-236ccae77465?q=80&w=1278&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                title: "Ambiance Cocooning",
-                desc: "Des créations faites main avec amour"
+                url: "images/carrousel/ladey-bougies_fragrances_florales_et_gourmandes.webp",
+                title: "Un peu de gourmandise pour le plaisir des sens",
+                _desc: "Cire végétale et senteur fruités/sucrés"
             },
             {
-                url: "https://images.unsplash.com/photo-1604249180474-3ebaf8747373?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                title: "Évasion Sensorielle",
-                desc: "Notes boisées et florales pour votre maison"
+                url: "images/carrousel/ladey-bougies_toutes_sortes_florales-gourmandes.webp",
+                title: "Un moment d'évasion avec nos senteurs fleuries",
+                desc: ""
             }
         ];
     </script>
     <section class="relative h-[500px] overflow-hidden bg-stone-200">
         <div class="absolute inset-0 flex items-center justify-center">
-            <!-- ID ajoutés pour le JS -->
-            <img id="carousel-img" src="https://images.unsplash.com/photo-1724570568441-9755d8e8b6e2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bougies" class="w-full h-full object-cover transition-all duration-1000 ease-in-out scale-100">
+            <img id="carousel-img" src="images/carrousel/ladey-bougies_cire_naturelle.webp" style="width:100%" />
             
             <div class="absolute text-center text-white drop-shadow-2xl">
-                <h2 id="carousel-title" class="text-5xl font-serif mb-4">Illuminez votre intérieur</h2>
-                <p id="carousel-desc" class="text-xl italic">Cires naturelles et parfums d'exception</p>
+                <h2 id="carousel-title" class="text-3xl font-serif italic mb-4">Le fait main, c'est un morceau d'âme que l'on offre dans chaque création</h2>
+                <p id="carousel-desc" class="text-xl italic"></p>
             </div>
         </div>
 
@@ -81,8 +87,10 @@
 
     <!-- Section Catégories à Onglets -->
     <section class="container mx-auto px-6 py-16">
-        <h3 class="text-3xl font-serif text-center mb-10">Nos Collections</h3>
+        <h2 class="text-3xl font-serif text-center">Nos Collections</h3>
         
+		<h2 class="text-1xl font-serif text-center mt-4 mb-10">Je vous propose des bougies faits mains à base de cire végétale de soja et de senteurs florales ou gourmandes</h2>
+		
         <div class="flex justify-center space-x-8 mb-12 border-b border-stone-200">
             <button onclick="openTab(event, 'floral')" class="tab-button active pb-4 font-medium uppercase tracking-widest text-sm transition-all duration-300">Florales</button>
             <button onclick="openTab(event, 'gourmand')" class="tab-button pb-4 font-medium uppercase tracking-widest text-sm transition-all duration-300">Gourmandes</button>
@@ -101,9 +109,9 @@
 				</div>
 				
 				<h4 class="font-bold text-lg">Bougie de 200 ml</h4>
-				<h5 class="text-stone-800 mb-2 text-sm">Parfums: Orchidée noire, Magnolia japonais, Fleur d'oranger, Lilas, Muguet</h5>
+				<h5 class="text-stone-800 mb-2 text-sm">Parfums: orchidée noire, magnolia japonais, fleur d'oranger, lilas, muguet</h5>
 				<p class="text-stone-600 text-sm italic">Prix - 30$</p>
-				<a target="_blank_" href="https://www.facebook.com/profile.php?id=61577433298265" class="inline-block mt-2 text-sm font-semibold text-stone-700 border-b border-stone-400">Voir sur Marketplace</a>
+				<a target="_blank_" href="https://www.facebook.com/profile.php?id=61577433298265" class="inline-block mt-2 text-sm font-semibold text-stone-700 border-b border-stone-400">Composition florale unique</a>
 			</div>
 			
 			<!-- florale 470gr -->
@@ -114,9 +122,9 @@
 				</div>
 				
 				<h4 class="font-bold text-lg">Bougie de 470 ml</h4>
-				<h5 class="text-stone-800 mb-2 text-sm">Parfums: Orchidée noire, Magnolia japonais, Fleur d'oranger, Lilas, Muguet</h5>
+				<h5 class="text-stone-800 mb-2 text-sm">Parfums: orchidée noire, magnolia japonais, fleur d'oranger, lilas, muguet</h5>
 				<p class="text-stone-600 text-sm italic">Prix - 50$</p>
-				<a target="_blank_" href="https://www.facebook.com/profile.php?id=61577433298265" class="inline-block mt-2 text-sm font-semibold text-stone-700 border-b border-stone-400">Voir sur Marketplace</a>
+				<span class="inline-block mt-2 text-sm font-semibold text-stone-700 border-b border-stone-400">Composition florale unique</span>
 			</div>
 
 
@@ -128,9 +136,9 @@
 					<img src="images/florale_110gr/Ladey-Bougies_Papillon-Vert.webp" class="h-full w-auto object-cover flex-shrink-0" alt="Bougie blanche artisanale dans un verre transparent de 110 grammes, décoré d’un papillon vert, ornée de petites fleurs séchées orange incrustées dans la cire autour de la mèche."/>
 				</div>
 				<h4 class="font-bold text-lg">Bougie de 110 ml</h4>
-				<h5 class="text-stone-800 mb-2 text-sm">Parfums: Orchidée noire, Magnolia japonais, Fleur d'oranger, Lilas, Muguet</h5>
+				<h5 class="text-stone-800 mb-2 text-sm">Parfums: orchidée noire, magnolia japonais, fleur d'oranger, lilas, muguet</h5>
 				<p class="text-stone-600 text-sm italic">Prix - 20$</p>
-				<a target="_blank_" href="https://www.facebook.com/profile.php?id=61577433298265" class="inline-block mt-2 text-sm font-semibold text-stone-700 border-b border-stone-400">Voir sur Marketplace</a>
+				<span class="inline-block mt-2 text-sm font-semibold text-stone-700 border-b border-stone-400">Composition florale unique</span>
 			</div>
 		</div>
 
@@ -149,9 +157,9 @@
 				</div>
 				
 				<h4 class="font-bold text-lg">Bougie de 200 ml</h4>
-				<h5 class="text-stone-800 mb-2 text-sm">Parfums: Pomme verte, Bonbons sucrés, mangue, amande/vanille</h5>
+				<h5 class="text-stone-800 mb-2 text-sm">Parfums: pomme verte, bonbons sucrés, mangue, amande/vanille, myrtille</h5>
 				<p class="text-stone-600 text-sm italic">Prix - 35$</p>
-				<a target="_blank_" href="https://www.facebook.com/profile.php?id=61577433298265" class="inline-block mt-2 text-sm font-semibold text-stone-700 border-b border-stone-400">Voir sur Marketplace</a>
+				<span class="inline-block mt-2 text-sm font-semibold text-stone-700 border-b border-stone-400">Choix des couleurs possibles</span>
 			</div>
 		</div>
     </section>
@@ -159,9 +167,9 @@
     <!-- Footer -->
     <footer class="bg-stone-800 text-stone-300 py-12">
         <div class="container mx-auto px-6 text-center">
-            <p class="mb-4 text-lg">Retrouvez toutes nos créations sur Facebook Marketplace</p>
+            <p class="mb-4 text-lg">Le fait main, c'est un morceau d'âme que l'on offre dans chaque création</p>
             <a target="_blank_" href="https://www.facebook.com/profile.php?id=61577433298265" class="inline-block border border-stone-500 px-8 py-3 rounded-full hover:bg-stone-700 hover:text-white transition duration-300">
-                Visiter la boutique officielle
+                Pour commander contactez-moi sur ma page Facebook - Ladey Bougies
             </a>
             <div class="mt-12 text-xs text-stone-500 uppercase tracking-widest">
                 &copy; 2026 Ladey Bougies
