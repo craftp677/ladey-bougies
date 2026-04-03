@@ -30,11 +30,26 @@
     <style>
         .tab-content { display: none; }
         .tab-content.active { display: grid; }
-        .tab-button.active { border-bottom: 2px solid #b38b6d; color: #b38b6d; }
+        .tab-button.active { border-bottom: 2px solid #b26022; color: #b26022; }
 		
 		@media(min-resolution: 2dppx) {
 		  .sticky{
 			position: relative;
+		  }
+		}
+		
+		@media screen and (max-width: 800px) {	  
+		  #carousel-title {
+			font-size: 1rem !important;
+			width: 70vw;
+			line-height: 1.3rem;
+		  }
+		  #carousel-img {
+			height: 300px !important;
+		  }
+		  .main-title {
+			font-size: 0.9rem;
+			display: flex; flex-direction: column;
 		  }
 		}
     </style>
@@ -42,10 +57,10 @@
     <!-- Header -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-serif font-bold text-stone-700 tracking-wider">Ladey Bougies | Bougies Artisanales et Naturelles</h1>
+            <h1 class="text-2xl font-serif font-bold text-stone-700 tracking-wider">Ladey Bougies <span class="main-title">| Bougies Artisanales et Naturelles</span></h1>
             <a href="https://www.facebook.com/profile.php?id=61577433298265" target="_blank"
 			   class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 rounded-full flex items-center transition shadow-lg">
-                <i class="fa-brands fa-facebook mr-2 text-2xl" aria-hidden="true"></i> Page Facebook
+                <i class="fa-brands fa-facebook mr-2 text-2xl" aria-hidden="true"></i> Facebook
             </a>
         </nav>
     </header>
@@ -70,16 +85,14 @@
             }
         ];
     </script>
-    <section class="relative h-[500px] overflow-hidden bg-stone-200">
-        <div class="absolute inset-0 flex items-center justify-center">
-            <img id="carousel-img" src="images/carrousel/ladey-bougies_cire_naturelle.webp" style="width:100%" />
-            
-            <div class="absolute text-center text-white drop-shadow-2xl">
-                <h2 id="carousel-title" class="text-3xl font-serif italic mb-4">Le fait main, c'est un morceau d'âme que l'on offre dans chaque création</h2>
-                <p id="carousel-desc" class="text-xl italic"></p>
+    <section class="relative h-[500px] overflow-hidden bg-stone-200" style="height:fit-content; width: auto; overflow-y:hidden;">
+        <div class="relative inset-0 flex overflow-hidden items-center justify-center" style="height:fit-content; width: auto; overflow-y:hidden;">
+            <img id="carousel-img" src="images/carrousel/ladey-bougies_cire_naturelle.webp" style="object-fit: cover; height:500px; width:100%; transition: transform 0.5s ease-in-out;"/>
+            <div class="absolute text-center text-white rounded-2xl p-3" style="background: rgba(0,0,0,0.3);">
+                <h2 id="carousel-title" class="text-3xl font-serif italic" style="transition: opacity 0.5s ease-in-out;">Le fait main, c'est un morceau d'âme que l'on offre dans chaque création</h2>
+                <!--<p id="carousel-desc" class="text-xl italic"></p>-->
             </div>
         </div>
-
         <!-- Boutons avec événements clic -->
         <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 p-3 rounded-full hover:bg-white/50 transition text-white text-2xl z-10">❮</button>
         <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 p-3 rounded-full hover:bg-white/50 transition text-white text-2xl z-10">❯</button>
@@ -210,25 +223,19 @@
             const img = document.getElementById('carousel-img');
             const title = document.getElementById('carousel-title');
             
-            // 1. Début de la transition : on réduit l'opacité et on zoome légèrement
-            img.style.opacity = "0.6";
-            img.style.transform = "scale(1.05)";
+            img.style.transform = "scale(1.20)";
             title.style.opacity = "0.6";
-            //title.style.transform = "translateY(10px)";
 
             setTimeout(() => {
-                // 2. Changement des données
                 currentIndex = (currentIndex + direction + slides.length) % slides.length;
                 
                 img.src = slides[currentIndex].url;
                 title.textContent = slides[currentIndex].title;
-                document.getElementById('carousel-desc').textContent = slides[currentIndex].desc;
+                // document.getElementById('carousel-desc').textContent = slides[currentIndex].desc;
 
                 // 3. Fin de la transition : on réaffiche avec l'effet inverse
-                img.style.opacity = "0.9";
                 img.style.transform = "scale(1)";
                 title.style.opacity = "1";
-                title.style.transform = "translateY(0)";
 
                 startAutoSlide();
             }, 600);
